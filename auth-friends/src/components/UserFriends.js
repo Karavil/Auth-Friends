@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import axiosWithAuth from "../utils/axiosWithAuth";
+
+import NewFriend from "./NewFriend";
+
 const UserFriends = () => {
    const [friends, setFriends] = useState([]);
    const [loading, setLoading] = useState(false);
@@ -17,15 +20,20 @@ const UserFriends = () => {
 
    return (
       <>
-         {loading
-            ? "Loading..."
-            : friends.map(friend => (
-                 <div key={friend.id}>
-                    <h3>{friend.name}</h3>
-                    <p>{friend.age}</p>
-                    <p>{friend.email}</p>
-                 </div>
-              ))}
+         {loading ? (
+            "Loading..."
+         ) : (
+            <>
+               {friends.map(friend => (
+                  <div key={friend.id}>
+                     <h3>{friend.name}</h3>
+                     <p>{friend.age}</p>
+                     <p>{friend.email}</p>
+                  </div>
+               ))}
+               <NewFriend setFriends={setFriends} />
+            </>
+         )}
       </>
    );
 };

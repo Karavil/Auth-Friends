@@ -9,6 +9,7 @@ const NewFriendForm = ({ setFriends }) => {
       axiosWithAuth()
          .post("/api/friends", { ...data })
          .then(res => {
+            console.log(res);
             setFriends(friends => [...friends, data]);
          })
          .catch(err => console.log(err));
