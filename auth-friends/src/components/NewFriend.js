@@ -19,20 +19,26 @@ const NewFriendForm = ({ setFriends }) => {
       <form onSubmit={handleSubmit(onSubmit)}>
          <input
             type="text"
-            placeholder="username"
+            placeholder="Friend's name"
             name="name"
             ref={register({ required: true })}
          />
          <input
             type="number"
-            placeholder="username"
+            placeholder="Age"
             name="age"
             ref={register({ required: true })}
          />
          <input
             type="email"
-            placeholder="username"
+            placeholder="Email"
             name="email"
+            ref={register({ required: true })}
+         />
+         <input
+            type="text"
+            placeholder="Friend's description"
+            name="description"
             ref={register({ required: true })}
          />
          <input type="submit" />
